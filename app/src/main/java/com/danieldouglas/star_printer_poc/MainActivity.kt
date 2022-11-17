@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
             try {
                 // Specify your printer interface types.
                 val interfaceTypes: List<InterfaceType> = listOf(
-//                    InterfaceType.Lan,
+                    InterfaceType.Lan,
 //                    InterfaceType.Bluetooth,
                     InterfaceType.Usb
                 )
@@ -65,7 +65,9 @@ class MainActivity : AppCompatActivity() {
 
         btPrint.setOnClickListener {
             // Specify your printer connection settings.
-            val settings = StarConnectionSettings(InterfaceType.Usb, "2600018120600044")
+            val lanId = "0011621C0487";
+            val usbId = "2600018120600044";
+            val settings = StarConnectionSettings(InterfaceType.Lan, lanId)
             val printer = StarPrinter(settings, applicationContext)
 
             val job = SupervisorJob()
